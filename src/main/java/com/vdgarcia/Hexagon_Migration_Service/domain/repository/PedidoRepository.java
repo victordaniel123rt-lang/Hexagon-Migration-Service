@@ -1,0 +1,16 @@
+package com.vdgarcia.Hexagon_Migration_Service.domain.repository;
+
+import com.vdgarcia.Hexagon_Migration_Service.domain.model.Pedido;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface PedidoRepository {
+
+    List<Pedido> obtenerTodos();
+    Optional<Pedido> obtenerId(Long id);
+    Pedido crear(Pedido pedido);
+    Pedido actualizar(Long id, Pedido pedido);
+    Pedido eliminar(Long id);
+
+}
