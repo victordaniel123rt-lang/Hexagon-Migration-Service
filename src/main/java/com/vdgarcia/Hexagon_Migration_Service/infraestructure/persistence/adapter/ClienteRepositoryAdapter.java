@@ -38,11 +38,20 @@ public class ClienteRepositoryAdapter implements ClienteRepository {
 
     @Override
     public Cliente actualizar(Long id, Cliente cliente) {
-        return null;
+        ClienteEntity cliente1 = repository.findById(id).orElseThrow(
+                ()-> new IllegalArgumentException("Cliente no encontrado")
+        );
+        Mapper.updateCliente(cliente,cliente1);
+        ClienteEntity actualizado = repository.save(cliente1);
+        return Mapper.toCliente(actualizado);
     }
 
     @Override
     public Cliente eliminar(Long id) {
-        return null;
+        ClienteEntity cliente = repository.findById(id).orElseThrow(
+                ()-> new IllegalArgumentException("Cliente no encontrado")
+        );
+        repository.delete(cliente);
+        return Mapper.toCliente(cliente);
     }
 }

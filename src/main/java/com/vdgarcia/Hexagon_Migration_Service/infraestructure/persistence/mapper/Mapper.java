@@ -127,11 +127,34 @@ public class Mapper {
     }
 
 
+    public static void updateCliente(Cliente model, ClienteEntity entity){
+        if(model==null || entity == null) return;
+        entity.setNombre(model.getNombre());
+        entity.setApellido(model.getApellido());
+        entity.setTelefono(model.getTelefono());
+        entity.setEmail(model.getEmail());
+
+    }
 
 
 
+    public static void updateProducto(Producto model, ProductoEntity entity){
+        if (model==null || entity==null) return;
+
+        entity.setNombre(model.getNombre());
+        entity.setDescripcion(model.getDescripcion());
+        entity.setStock(model.getStock());
+        entity.setPrecio(model.getPrecio());
+    }
 
 
+
+    public static void updatePedido(Pedido model, PedidoEntity entity){
+        if(model==null || entity==null) return;
+        entity.setTotal(model.getTotal());
+        entity.setEstado(model.getEstado());
+        entity.setFecha(model.getFecha());
+    }
 
 
 }
