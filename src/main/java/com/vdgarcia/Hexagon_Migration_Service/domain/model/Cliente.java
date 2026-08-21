@@ -11,6 +11,16 @@ public class Cliente {
     private String telefono;
     private List<Pedido> pedidos;
 
+
+
+    public void actualizarDatos(Cliente cliente){
+        this.nombre= cliente.getNombre();
+        this.apellido= cliente.getApellido();
+        this.telefono = cliente.getTelefono();
+        this.email = cliente.getEmail();
+    }
+
+
     public Cliente(Long id) {
         this.id = id;
     }

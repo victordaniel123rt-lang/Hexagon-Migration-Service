@@ -8,8 +8,6 @@ import java.util.Optional;
 public interface ClienteRepository {
     List<Cliente> obtenerTodos();
     Optional<Cliente> obtenerPorId(Long id);
-    Cliente crear(Cliente cliente);
-    Cliente actualizar(Long id, Cliente cliente);
-    Cliente eliminar(Long id);
-
+    void eliminar(Long id);
+    void guardar(Cliente cliente);
 }

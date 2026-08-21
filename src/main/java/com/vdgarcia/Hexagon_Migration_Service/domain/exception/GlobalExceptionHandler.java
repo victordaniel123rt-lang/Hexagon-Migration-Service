@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
 
-@RestControllerAdvice(basePackages = "com.vdgarcia.migration_service_rest")
+@RestControllerAdvice(basePackages = "com.vdgarcia.Hexagon_Migration_Service")
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)

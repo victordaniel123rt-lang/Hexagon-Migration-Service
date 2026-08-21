@@ -23,35 +23,18 @@ public class ClienteRepositoryAdapter implements ClienteRepository {
 
     @Override
     public Optional<Cliente> obtenerPorId(Long id) {
-        ClienteEntity cliente = repository.findById(id).orElseThrow(
-                ()-> new IllegalArgumentException("Cliente no encontrado")
-        );
-        return Optional.of(Mapper.toCliente(cliente));
+        return repository.findById(id)
+                .map(Mapper::toCliente);
     }
 
     @Override
-    public Cliente crear(Cliente cliente) {
+    public void eliminar(Long id) {
+      repository.deleteById(id);
+    }
+
+    @Override
+    public void guardar(Cliente cliente) {
         ClienteEntity cliente1 = Mapper.toClienteEntity(cliente);
         ClienteEntity guardado = repository.save(cliente1);
-        return Mapper.toCliente(guardado);
-    }
-
-    @Override
-    public Cliente actualizar(Long id, Cliente cliente) {
-        ClienteEntity cliente1 = repository.findById(id).orElseThrow(
-                ()-> new IllegalArgumentException("Cliente no encontrado")
-        );
-        Mapper.updateCliente(cliente,cliente1);
-        ClienteEntity actualizado = repository.save(cliente1);
-        return Mapper.toCliente(actualizado);
-    }
-
-    @Override
-    public Cliente eliminar(Long id) {
-        ClienteEntity cliente = repository.findById(id).orElseThrow(
-                ()-> new IllegalArgumentException("Cliente no encontrado")
-        );
-        repository.delete(cliente);
-        return Mapper.toCliente(cliente);
     }
 }
