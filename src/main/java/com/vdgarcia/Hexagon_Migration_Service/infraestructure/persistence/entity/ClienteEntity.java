@@ -20,6 +20,6 @@ public class ClienteEntity {
     private String email;
     private String telefono;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente")
-    private List<Pedido> pedidos;
+    private List<PedidoEntity> pedidos;
 
 }

@@ -23,7 +23,7 @@ public class PedidoEntity {
     private LocalDate fecha;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
+    private ClienteEntity cliente;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pedido")
     private List<DetallePedidoEntity> detalles;
 }
