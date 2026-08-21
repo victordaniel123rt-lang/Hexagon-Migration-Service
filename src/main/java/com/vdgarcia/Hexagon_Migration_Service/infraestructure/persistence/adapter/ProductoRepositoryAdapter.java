@@ -24,35 +24,19 @@ public class ProductoRepositoryAdapter implements ProductoRepository {
 
     @Override
     public Optional<Producto> obtenerPorId(Long id) {
-        ProductoEntity entity = repository.findById(id).orElseThrow(
-                ()-> new IllegalArgumentException("Producto no encontrado")
-        );
-        return Optional.of(Mapper.toProducto(entity));
+        return repository.findById(id)
+                .map(Mapper::toProducto);
     }
 
     @Override
-    public Producto crear(Producto producto) {
+    public Producto guardar(Producto producto) {
         ProductoEntity entity = Mapper.toProductoEntity(producto);
         ProductoEntity creado = repository.save(entity);
         return Mapper.toProducto(creado);
     }
 
     @Override
-    public Producto actualizar(Long id, Producto producto) {
-        ProductoEntity entity = repository.findById(id).orElseThrow(
-                ()-> new IllegalArgumentException("Producto no encontrado")
-        );
-        Mapper.updateProducto(producto,entity);
-        ProductoEntity actualizado = repository.save(entity);
-        return Mapper.toProducto(actualizado);
-    }
-
-    @Override
-    public Producto eliminar(Long id) {
-        ProductoEntity entity = repository.findById(id).orElseThrow(
-                ()-> new IllegalArgumentException("Producto no encontrado")
-        );
-        repository.delete(entity);
-        return Mapper.toProducto(entity);
+    public void eliminar(Long id) {
+        repository.deleteById(id);
     }
 }

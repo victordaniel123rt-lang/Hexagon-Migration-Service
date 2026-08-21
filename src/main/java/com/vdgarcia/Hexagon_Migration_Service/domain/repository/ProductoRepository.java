@@ -9,7 +9,6 @@ public interface ProductoRepository {
 
     List<Producto> obtenerTodos();
     Optional<Producto> obtenerPorId(Long id);
-    Producto crear(Producto producto);
-    Producto actualizar(Long id, Producto producto);
-    Producto eliminar(Long id);
+    Producto guardar(Producto producto);
+    void eliminar(Long id);
 }

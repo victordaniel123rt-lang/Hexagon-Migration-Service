@@ -12,6 +12,13 @@ public class Producto {
     private List<DetallePedido> detalles;
 
 
+    public void actualizarDatos(Producto producto){
+        this.nombre = producto.getNombre();
+        this.precio = producto.getPrecio();
+        this.stock = producto.getStock();
+        this.descripcion = producto.getDescripcion();
+    }
+
     public Producto(Long id) {
         this.id = id;
     }
