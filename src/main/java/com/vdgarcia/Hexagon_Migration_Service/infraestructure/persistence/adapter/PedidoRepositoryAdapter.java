@@ -24,28 +24,16 @@ public class PedidoRepositoryAdapter implements PedidoRepository {
 
     @Override
     public Optional<Pedido> obtenerId(Long id) {
-        PedidoEntity entity = repository.findById(id).orElseThrow(
-                ()-> new IllegalArgumentException("Pedido no encontrado")
-        );
-        return Optional.of(Mapper.toPedido(entity));
+        return repository.findById(id).map(Mapper::toPedido);
     }
 
     @Override
-    public Pedido crear(Pedido pedido) {
+    public Pedido guardar(Pedido pedido) {
         PedidoEntity entity = Mapper.toPedidoEntity(pedido);
         PedidoEntity creado = repository.save(entity);
         return Mapper.toPedido(creado);
     }
 
-    @Override
-    public Pedido actualizar(Long id, Pedido pedido) {
-        PedidoEntity entity = repository.findById(id).orElseThrow(
-                ()-> new IllegalArgumentException("Pedido no encontrado")
-        );
-        Mapper.updatePedido(pedido,entity);
-        PedidoEntity actualizado = repository.save(entity);
-        return Mapper.toPedido(actualizado);
-    }
 
     @Override
     public Pedido eliminar(Long id) {

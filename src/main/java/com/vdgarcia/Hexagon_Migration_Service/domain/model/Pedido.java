@@ -12,6 +12,22 @@ public class Pedido {
     private Cliente cliente;
     private List<DetallePedido> detalles;
 
+
+    public void agregarProductos(Producto producto, Integer cantidad){
+        List<DetallePedido> detalles = this.getDetalles();
+        DetallePedido detallePedido = new DetallePedido(cantidad,producto);
+        detalles.add(detallePedido);
+    }
+
+
+    public Pedido(LocalDate fecha, Estado estado, List<DetallePedido> detalles, Cliente cliente, BigDecimal total) {
+        this.fecha = fecha;
+        this.estado = estado;
+        this.detalles = detalles;
+        this.cliente = cliente;
+        this.total = total;
+    }
+
     public Pedido(Long id) {
         this.id = id;
     }

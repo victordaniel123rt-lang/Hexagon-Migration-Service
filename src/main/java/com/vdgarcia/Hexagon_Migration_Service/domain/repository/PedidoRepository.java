@@ -9,8 +9,7 @@ public interface PedidoRepository {
 
     List<Pedido> obtenerTodos();
     Optional<Pedido> obtenerId(Long id);
-    Pedido crear(Pedido pedido);
-    Pedido actualizar(Long id, Pedido pedido);
+    Pedido guardar(Pedido pedido);
     Pedido eliminar(Long id);
 
 }

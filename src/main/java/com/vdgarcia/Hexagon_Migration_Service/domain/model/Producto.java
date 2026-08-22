@@ -11,6 +11,11 @@ public class Producto {
     private Integer stock;
     private List<DetallePedido> detalles;
 
+    public boolean validarStock(Producto producto, Integer cantidad){
+        Integer stock = producto.getStock();
+        if(stock<cantidad) return true;
+        return false;
+    }
 
     public void actualizarDatos(Producto producto){
         this.nombre = producto.getNombre();
