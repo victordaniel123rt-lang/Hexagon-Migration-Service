@@ -1,8 +1,9 @@
 package com.vdgarcia.Hexagon_Migration_Service.application.service;
 
+import com.vdgarcia.Hexagon_Migration_Service.api.dto.ClienteDTO;
 import com.vdgarcia.Hexagon_Migration_Service.domain.model.Cliente;
 import com.vdgarcia.Hexagon_Migration_Service.domain.repository.ClienteRepository;
-import com.vdgarcia.Hexagon_Migration_Service.infraestructure.persistence.mapper.Mapper;
+import com.vdgarcia.Hexagon_Migration_Service.api.mapper.Mapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,18 +27,20 @@ public class ClienteService {
         );
     }
 
-    public Cliente crear(Cliente cliente){
+    public ClienteDTO crear(ClienteDTO cliente){
         repository.guardar(cliente);
         return cliente;
     }
 
-    public Cliente actualizar(Long id, Cliente cliente){
-        Cliente client = repository.obtenerPorId(id).orElseThrow(
+    public Cliente actualizar(Long id, ClienteDTO client){
+        Cliente clien = repository.obtenerPorId(id).orElseThrow(
                 ()-> new IllegalArgumentException("Cliente no encontrado")
         );
-        client.actualizarDatos(cliente);
-        repository.guardar(client);
-        return client;
+        Cliente cliente = Mapper.toCliente(client);
+        clien.actualizarDatos(cliente);
+        ClienteDTO c =Mapper.toClienteDTO(clien);
+        repository.guardar(c);
+        return clien;
     }
 
     public void eliminar(Long id){

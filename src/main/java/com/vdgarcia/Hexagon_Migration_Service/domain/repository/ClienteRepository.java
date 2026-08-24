@@ -1,5 +1,6 @@
 package com.vdgarcia.Hexagon_Migration_Service.domain.repository;
 
+import com.vdgarcia.Hexagon_Migration_Service.api.dto.ClienteDTO;
 import com.vdgarcia.Hexagon_Migration_Service.domain.model.Cliente;
 
 import java.util.List;
@@ -9,5 +10,5 @@ public interface ClienteRepository {
     List<Cliente> obtenerTodos();
     Optional<Cliente> obtenerPorId(Long id);
     void eliminar(Long id);
-    void guardar(Cliente cliente);
+    void guardar(ClienteDTO cliente);
 }

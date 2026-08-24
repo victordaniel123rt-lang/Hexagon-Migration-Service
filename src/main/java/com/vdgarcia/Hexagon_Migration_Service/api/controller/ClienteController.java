@@ -32,12 +32,12 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<ClienteDTO> crear(@RequestBody Cliente model){
-        return ResponseEntity.ok(Mapper.toClienteDTO(service.crear(model)));
+    public ResponseEntity<ClienteDTO> crear(@RequestBody ClienteDTO model){
+        return ResponseEntity.ok(service.crear(model));
     }
 
     @PutMapping
-    public ResponseEntity<ClienteDTO> actualizar(@PathVariable Long id, @RequestBody Cliente model){
+    public ResponseEntity<ClienteDTO> actualizar(@PathVariable Long id, @RequestBody ClienteDTO model){
         return ResponseEntity.ok(Mapper.toClienteDTO(service.actualizar(id,model)));
     }
 

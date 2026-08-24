@@ -1,5 +1,7 @@
 package com.vdgarcia.Hexagon_Migration_Service.infraestructure.persistence.adapter;
 
+import com.vdgarcia.Hexagon_Migration_Service.api.dto.ClienteDTO;
+import com.vdgarcia.Hexagon_Migration_Service.domain.mapper.MapperOne;
 import com.vdgarcia.Hexagon_Migration_Service.domain.model.Cliente;
 import com.vdgarcia.Hexagon_Migration_Service.domain.repository.ClienteRepository;
 import com.vdgarcia.Hexagon_Migration_Service.infraestructure.persistence.entity.ClienteEntity;
@@ -33,8 +35,9 @@ public class ClienteRepositoryAdapter implements ClienteRepository {
     }
 
     @Override
-    public void guardar(Cliente cliente) {
-        ClienteEntity cliente1 = Mapper.toClienteEntity(cliente);
+    public void guardar(ClienteDTO cliente) {
+        Cliente one = MapperOne.toCliente(cliente);
+        ClienteEntity cliente1 = Mapper.toClienteEntity(one);
         ClienteEntity guardado = repository.save(cliente1);
     }
 }
