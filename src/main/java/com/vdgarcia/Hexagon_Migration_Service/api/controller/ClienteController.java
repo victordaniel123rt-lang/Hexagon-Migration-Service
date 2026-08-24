@@ -47,8 +47,4 @@ public class ClienteController {
         return ResponseEntity.ok(HttpEntity.EMPTY);
     }
 
-
-
-
-
 }
