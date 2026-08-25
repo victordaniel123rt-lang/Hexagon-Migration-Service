@@ -3,6 +3,10 @@
 Sistema de gestión de ventas, productos y pedidos implementado con Arquitectura Hexagonal (Ports & Adapters).  
 Este repositorio contiene la migración del proyecto anterior (migration-service-rest) a una arquitectura hexagonal para aislar la lógica de negocio de las tecnologías e infraestructuras.
 
+![Arquitectura del sistema](docs/hexagon.png)
+
+
+
 ## Tabla de contenidos
 - [Visión general](#visión-general)
 - [Arquitectura](#arquitectura)
@@ -48,17 +52,6 @@ Beneficios clave:
 - Maven o Gradle (verifica el build tool en el repo)
 - MariaDB (o MySQL compatible) para persistencia
 - (Opcional) Docker / Docker Compose para levantar servicios localmente
-
-## Estructura del proyecto (ejemplo conceptual)
-- src/main/java
-  - com.tuempresa.hexagon.domain        # Entidades y lógica de dominio
-  - com.tuempresa.hexagon.application   # Use cases / casos de uso
-  - com.tuempresa.hexagon.adapters.in   # Controladores REST, validaciones
-  - com.tuempresa.hexagon.adapters.out  # Implementaciones de puertos (JPA adapters)
-  - com.tuempresa.hexagon.infrastructure # Configuraciones, datasource, transacciones
-- src/test/java                         # Tests unitarios e integraciones
-
-> Nota: Ajusta los paquetes según la organización real del repositorio.
 
 ## Cómo ejecutar
 
