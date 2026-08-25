@@ -150,8 +150,5 @@ Levantar:
 2. Crea una rama feature/bugfix a partir de la rama principal.
 3. Envía un Pull Request con descripción clara y pruebas cuando sea necesario.
 
-## Licencia
-Incluye aquí la licencia que prefieras (por ejemplo MIT). Si quieres, puedo añadir un archivo LICENSE con el texto correspondiente.
-
 ## Contacto
 Mantente en contacto con el autor o el equipo del proyecto. Para cambios significativos, abre un issue primero.
